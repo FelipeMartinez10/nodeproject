@@ -1,0 +1,15 @@
+extends layout
+block content
+  div.container-fluid
+    div.row
+      div.col-md-12
+        h1 Tweets Recolectados
+    div.row
+      for tweet in tweets
+        div.col-md-3
+          div.box
+            div.box-icon
+              img.img-circle.img-responsive( src = tweet.user.profile_image_url_https)
+            h4 #{tweet.user.name}
+            p #{tweet.text}
+           
