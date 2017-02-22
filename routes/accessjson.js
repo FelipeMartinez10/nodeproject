@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var json = require('../tweets.json');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.setHeader('Content-Type', 'application/json');
+    res.json(json);
 });
 
 module.exports = router;
