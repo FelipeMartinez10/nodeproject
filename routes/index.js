@@ -7,17 +7,19 @@ var request = require('request');
 //Usando el endpoint
 
 router.get('/', function(req, res, next) {
-  request('http://localhost:3000/accessjson', function (error, response, body) {
+  request(req.protocol + '://' + req.get('host') + req.originalUrl+'accessjson', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var json = JSON.parse(body);
     }
     else {
       return res.sendStatus(500);
     }
-    console.log(json);
+    //console.log(json);
     res.render('index', {tweets: json });
   });
 });
+
+
 
 
 module.exports = router;
