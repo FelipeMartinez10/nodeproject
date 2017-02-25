@@ -6,7 +6,7 @@ var request = require('request');
 
 //Usando el endpoint
 
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
   request(req.protocol + '://' + req.get('host') + req.originalUrl+'accessjson', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var json = JSON.parse(body);
@@ -17,8 +17,10 @@ router.get('/', function(req, res, next) {
     //console.log(json);
     res.render('index', {tweets: json });
   });
+});*/
+router.get('/', function(req, res, next) {
+    res.render('index', {});
 });
-
 
 
 
